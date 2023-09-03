@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace App\Actions\Weather;
 
-use Carbon\Carbon;
+use App\DTOs\StatisticsDto;
 use App\Models\City;
 use App\Models\WeatherLog;
-use App\DTOs\StatisticsDto;
+use Carbon\Carbon;
 
 class WeatherLogAction
 {
     public function execute()
     {
-        $weatherLogs = WeatherLog::query()->with('city.country')->get(); 
-        
+        $weatherLogs = WeatherLog::query()->with('city.country')->get();
+
         return response()->json($weatherLogs);
     }
 
     public function getAllCity()
     {
-        return City::query()->with('country')->get(); 
+        return City::query()->with('country')->get();
     }
 
     public function getStatisticsData(StatisticsDto $statisticsDto)
@@ -33,7 +33,7 @@ class WeatherLogAction
         $windData = [];
 
         $currentDateTime = Carbon::now();
-        $specificDate = $statisticsDto->filter_date ?? ''; 
+        $specificDate = $statisticsDto->filter_date ?? '';
 
         $twentyFourHoursAgo = $currentDateTime->subHours(24);
 
@@ -41,10 +41,10 @@ class WeatherLogAction
             $intervalStart = $twentyFourHoursAgo->copy()->addHours($i * $intervalInHours);
             $intervalEnd = $twentyFourHoursAgo->copy()->addHours(($i + 1) * $intervalInHours);
 
-            $weatherLogs = WeatherLog::where(function($query) use ($specificDate, $intervalStart, $intervalEnd, $statisticsDto) {
-                    $query->whereDate('fetch_timestamp', $specificDate)
-                        ->orWhereBetween('fetch_timestamp', [$intervalStart, $intervalEnd]);
-                })
+            $weatherLogs = WeatherLog::where(function ($query) use ($specificDate, $intervalStart, $intervalEnd) {
+                $query->whereDate('fetch_timestamp', $specificDate)
+                    ->orWhereBetween('fetch_timestamp', [$intervalStart, $intervalEnd]);
+            })
                 ->where('city_id', $statisticsDto->city_id)
                 ->get();
             // $weatherLogs = WeatherLog::where('fetch_timestamp', '>=', $intervalStart)

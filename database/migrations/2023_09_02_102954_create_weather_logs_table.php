@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('weather_logs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('city_id')->constrained('cities')->cascadeOnDelete();
-            $table->timestamp('fetch_timestamp'); 
+            $table->timestamp('fetch_timestamp');
             $table->string('weather_condition', 30);
             $table->string('weather_condition_description', 100)->nullable(); //WeatherConditionDescription Enum
             $table->decimal('temperature', 6, 2);

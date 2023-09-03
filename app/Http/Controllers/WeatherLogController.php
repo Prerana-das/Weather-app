@@ -1,12 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Actions\Weather\FetchWeatherDataAction;
+use App\Actions\Weather\WeatherLogAction;
 use App\DTOs\StatisticsDto;
 use Illuminate\Http\Request;
-use App\Actions\Weather\WeatherLogAction;
-use App\Actions\Weather\FetchWeatherDataAction;
-
 
 class WeatherLogController extends Controller
 {
@@ -28,5 +29,4 @@ class WeatherLogController extends Controller
     {
         return $weatherLogAction->getStatisticsData(StatisticsDto::fromRequest($request));
     }
-
 }

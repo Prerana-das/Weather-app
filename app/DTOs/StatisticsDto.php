@@ -2,19 +2,20 @@
 
 namespace App\DTOs;
 
-use WendellAdriel\ValidatedDTO\ValidatedDTO;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
 class StatisticsDto extends ValidatedDTO
 {
     public string $city_id;
+
     public ?string $filter_date;
 
     protected function rules(): array
     {
         return [
             'city_id' => ['required', 'string'],
-            'filter_date' => ['nullable','string'],
+            'filter_date' => ['nullable', 'string'],
         ];
     }
 

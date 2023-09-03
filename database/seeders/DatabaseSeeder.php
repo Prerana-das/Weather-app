@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-use Database\Seeders\CitySeeder;
-use Database\Seeders\CountrySeeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {

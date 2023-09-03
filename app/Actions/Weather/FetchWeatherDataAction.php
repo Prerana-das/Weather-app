@@ -13,18 +13,18 @@ class FetchWeatherDataAction
     public function execute()
     {
         $allCity = City::query()->with('country')->get();
-        
+
         foreach ($allCity as $city) {
             $city_param = $city->name.', '.$city->country->name;
             $this->getDataByCity($city->id, $city_param);
         }
 
-        return;
     }
 
-    public function getDataByCity($city_id, $city_param){
+    public function getDataByCity($city_id, $city_param)
+    {
 
-        $response = Http::get(config('services.weather.weather_api') . 'q=' . $city_param . '&units=metric&appid=' . config('services.weather.weather_api_key'));
+        $response = Http::get(config('services.weather.weather_api').'q='.$city_param.'&units=metric&appid='.config('services.weather.weather_api_key'));
         $data = $response->json();
 
         $fetchTimestamp = now();

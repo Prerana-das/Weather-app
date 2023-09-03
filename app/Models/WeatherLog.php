@@ -1,11 +1,13 @@
-<?php declare (strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Enums\WeatherConditionDescription;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
@@ -45,7 +47,6 @@ class WeatherLog extends Model
 
     protected $appends = ['condition_img'];
 
-
     public function getConditionImgAttribute()
     {
         $weatherCondition = $this->attributes['weather_condition_description'];
@@ -73,5 +74,4 @@ class WeatherLog extends Model
                 return WeatherConditionDescription::clear_sky->value.'.png';
         }
     }
-    
 }

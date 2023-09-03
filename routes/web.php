@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\WeatherLogController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WeatherLogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +21,7 @@ Route::get('/get-statistics-data', [WeatherLogController::class, 'getStatisticsD
 
 Auth::routes();
 // Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::get('/', function () {
+    return view('welcome');
+});
 // });
-
-
-
-

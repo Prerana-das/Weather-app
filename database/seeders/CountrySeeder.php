@@ -16,16 +16,16 @@ class CountrySeeder extends Seeder
     {
         $country = [
             [
-                'name'        => 'UAE',
+                'name' => 'UAE',
             ],
             [
-                'name'        => 'UK',
+                'name' => 'UK',
             ],
             [
-                'name'        => 'USA',
+                'name' => 'USA',
             ],
             [
-                'name'        => 'Japan',
+                'name' => 'Japan',
             ],
         ];
 

@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\Actions\Weather\FetchWeatherDataAction;
+use Illuminate\Console\Command;
 
 class FetchWeatherData extends Command
 {
@@ -31,6 +31,6 @@ class FetchWeatherData extends Command
         info('fetch');
         $fetchWeatherDataAction = new FetchWeatherDataAction();
         $fetchWeatherDataAction->execute();
-        
+
     }
 }
