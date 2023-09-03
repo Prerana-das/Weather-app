@@ -4,19 +4,15 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Actions\Weather\FetchWeatherDataAction;
 use App\Actions\Weather\WeatherLogAction;
 use App\DTOs\StatisticsDto;
 use Illuminate\Http\Request;
 
 class WeatherLogController extends Controller
 {
+    //returning data index page
     public function getWeatherLogData(WeatherLogAction $weatherLogAction)
     {
-
-        // $fetchWeatherDataAction = new FetchWeatherDataAction();
-        // $fetchWeatherDataAction->execute();
-
         return $weatherLogAction->execute();
     }
 
@@ -25,6 +21,7 @@ class WeatherLogController extends Controller
         return $weatherLogAction->getAllCity();
     }
 
+    //statistics data filter
     public function getStatisticsData(Request $request, WeatherLogAction $weatherLogAction)
     {
         return $weatherLogAction->getStatisticsData(StatisticsDto::fromRequest($request));

@@ -2,7 +2,6 @@
     <div>
         <div class="main-content container">
             <div class="row">
-                <!-- Left Grid: Weather Reports -->
                 <div class="col-md-6">
                     <Report />
                 </div>

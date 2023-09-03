@@ -24,15 +24,20 @@ For fresh ( Drop all existing table & migrate again)
 php artisan migrate --fresh
 ```
 
-## Create Country and City Seeder
+### Create country and city seeder
 ### Seeder Command
 ```shell
 php artisan db:seed
 ```
 
 Using laravel task schedule for fetching weather api data in every ten minutes
+
+https://laravel.com/docs/9.x/scheduling#main-content
 ### Schedule Command
 ```shell
 php artisan schedule:work
 ```
+### My current output
+
+https://ibb.co/VQtFJJY
 

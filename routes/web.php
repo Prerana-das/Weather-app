@@ -20,8 +20,6 @@ Route::get('/get-all-city', [WeatherLogController::class, 'getAllCity']);
 Route::get('/get-statistics-data', [WeatherLogController::class, 'getStatisticsData']);
 
 Auth::routes();
-// Route::middleware(['auth'])->group(function () {
 Route::get('/', function () {
     return view('welcome');
 });
-// });

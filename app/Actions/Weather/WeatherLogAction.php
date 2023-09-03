@@ -37,9 +37,12 @@ class WeatherLogAction
         $windData = [];
 
         $currentDateTime = Carbon::now();
-        $specificDate = $statisticsDto->filter_date ?? '';
+        $formatCurrentDate = $currentDateTime->format('Y-m-d');
 
-        $twentyFourHoursAgo = $currentDateTime->subHours(24);
+        $specificDate = $statisticsDto->filter_date ?? $formatCurrentDate;
+
+        // Subtract 24 hours from the specific date / default now date
+        $twentyFourHoursAgo = $currentDateTime->copy()->subHours(24);
 
         for ($i = 0; $i < $numDataPoints; $i++) {
             $intervalStart = $twentyFourHoursAgo->copy()->addHours($i * $intervalInHours);
@@ -47,16 +50,10 @@ class WeatherLogAction
 
             $weatherLogs = WeatherLog::where(function ($query) use ($specificDate, $intervalStart, $intervalEnd) {
                 $query->whereDate('fetch_timestamp', $specificDate)
-                    ->orWhereBetween('fetch_timestamp', [$intervalStart, $intervalEnd]);
+                    ->whereBetween('fetch_timestamp', [$intervalStart, $intervalEnd]);
             })
                 ->where('city_id', $statisticsDto->city_id)
-                ->orderBy('fetch_timestamp', 'desc')
-                ->limit(6)
                 ->get();
-            // $weatherLogs = WeatherLog::where('fetch_timestamp', '>=', $intervalStart)
-            //     ->where('fetch_timestamp', '<=', $intervalEnd)
-            //     ->where('city_id', $statisticsDto->city_id)
-            //     ->get();
 
             $temperatures = $weatherLogs->pluck('temperature')->toArray();
             $humidities = $weatherLogs->pluck('humidity_percentage')->toArray();

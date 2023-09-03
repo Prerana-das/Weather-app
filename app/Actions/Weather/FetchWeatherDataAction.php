@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Http;
 
 class FetchWeatherDataAction
 {
+    //calling weather data api
     public function execute()
     {
         $allCity = City::query()->with('country')->get();
@@ -23,18 +24,17 @@ class FetchWeatherDataAction
 
     public function getDataByCity($city_id, $city_param)
     {
-
         $response = Http::get(config('services.weather.weather_api').'q='.$city_param.'&units=metric&appid='.config('services.weather.weather_api_key'));
         $data = $response->json();
 
         $fetchTimestamp = now();
-        $temperature = $data['main']['temp'];
-        $weatherCondition = $data['weather'][0]['main'];
-        $weatherConditionDescription = $data['weather'][0]['description'];
-        $feelsLikeTemperature = $data['main']['feels_like'];
-        $humidityPercentage = $data['main']['humidity'];
-        $windSpeedKmph = $data['wind']['speed'];
-        $windDirection = $data['wind']['deg'];
+        $temperature = $data['main']['temp'] ?? null;
+        $weatherCondition = $data['weather'][0]['main'] ?? null;
+        $weatherConditionDescription = $data['weather'][0]['description'] ?? null;
+        $feelsLikeTemperature = $data['main']['feels_like'] ?? null;
+        $humidityPercentage = $data['main']['humidity'] ?? null;
+        $windSpeedKmph = $data['wind']['speed'] ?? null;
+        $windDirection = $data['wind']['deg'] ?? null;
 
         return WeatherLog::create(
             [
