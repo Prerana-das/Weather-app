@@ -28,7 +28,7 @@ class FetchWeatherData extends Command
      */
     public function handle()
     {
-        info('fetch');
+        info('fetch in every 10 minutes');
         $fetchWeatherDataAction = new FetchWeatherDataAction();
         $fetchWeatherDataAction->execute();
 

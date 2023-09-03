@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\WeatherCondition;
 use App\Enums\WeatherConditionDescription;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -49,29 +50,45 @@ class WeatherLog extends Model
 
     public function getConditionImgAttribute()
     {
-        $weatherCondition = $this->attributes['weather_condition_description'];
+        $weatherCondition = $this->attributes['weather_condition'];
         switch ($weatherCondition) {
 
-            case WeatherConditionDescription::clear_sky->value:
-                return WeatherConditionDescription::clear_sky->value.'.png';
-            case WeatherConditionDescription::few_clouds->value:
-                return WeatherConditionDescription::few_clouds->value.'.png';
-            case WeatherConditionDescription::scattered_clouds->value:
-                return WeatherConditionDescription::scattered_clouds->value.'.png';
-            case WeatherConditionDescription::broken_clouds->value:
+            case WeatherCondition::Clouds->value:
                 return WeatherConditionDescription::broken_clouds->value.'.png';
-            case WeatherConditionDescription::shower_rain->value:
+            case WeatherCondition::Rain->value:
                 return WeatherConditionDescription::shower_rain->value.'.png';
-            case WeatherConditionDescription::rain->value:
-                return WeatherConditionDescription::rain->value.'.png';
-            case WeatherConditionDescription::thunderstorm->value:
-                return WeatherConditionDescription::thunderstorm->value.'.png';
-            case WeatherConditionDescription::snow->value:
-                return WeatherConditionDescription::snow->value.'.png';
-            case WeatherConditionDescription::mist->value:
-                return WeatherConditionDescription::mist->value.'.png';
+            case WeatherCondition::Clear->value:
+                return WeatherConditionDescription::clear_sky->value.'.png';
             default:
                 return WeatherConditionDescription::clear_sky->value.'.png';
         }
     }
+
+    // ** Need to ensure about all types of weather condition then we can use that **
+    // public function getConditionImgAttribute()
+    // {
+    //     $weatherCondition = $this->attributes['weather_condition_description'];
+    //     switch ($weatherCondition) {
+    //         case WeatherConditionDescription::clear_sky->value:
+    //             return WeatherConditionDescription::clear_sky->value.'.png';
+    //         case WeatherConditionDescription::few_clouds->value:
+    //             return WeatherConditionDescription::few_clouds->value.'.png';
+    //         case WeatherConditionDescription::scattered_clouds->value:
+    //             return WeatherConditionDescription::scattered_clouds->value.'.png';
+    //         case WeatherConditionDescription::broken_clouds->value:
+    //             return WeatherConditionDescription::broken_clouds->value.'.png';
+    //         case WeatherConditionDescription::shower_rain->value:
+    //             return WeatherConditionDescription::shower_rain->value.'.png';
+    //         case WeatherConditionDescription::rain->value:
+    //             return WeatherConditionDescription::rain->value.'.png';
+    //         case WeatherConditionDescription::thunderstorm->value:
+    //             return WeatherConditionDescription::thunderstorm->value.'.png';
+    //         case WeatherConditionDescription::snow->value:
+    //             return WeatherConditionDescription::snow->value.'.png';
+    //         case WeatherConditionDescription::mist->value:
+    //             return WeatherConditionDescription::mist->value.'.png';
+    //         default:
+    //             return WeatherConditionDescription::clear_sky->value.'.png';
+    //     }
+    // }
 }

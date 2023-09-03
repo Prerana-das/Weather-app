@@ -13,7 +13,11 @@ class WeatherLogAction
 {
     public function execute()
     {
-        $weatherLogs = WeatherLog::query()->with('city.country')->get();
+        $weatherLogs = WeatherLog::query()
+            ->with('city.country')
+            ->orderBy('fetch_timestamp', 'desc')
+            ->limit(6)
+            ->get();
 
         return response()->json($weatherLogs);
     }
@@ -46,6 +50,8 @@ class WeatherLogAction
                     ->orWhereBetween('fetch_timestamp', [$intervalStart, $intervalEnd]);
             })
                 ->where('city_id', $statisticsDto->city_id)
+                ->orderBy('fetch_timestamp', 'desc')
+                ->limit(6)
                 ->get();
             // $weatherLogs = WeatherLog::where('fetch_timestamp', '>=', $intervalStart)
             //     ->where('fetch_timestamp', '<=', $intervalEnd)

@@ -36,9 +36,9 @@ class FetchWeatherDataAction
         $windSpeedKmph = $data['wind']['speed'];
         $windDirection = $data['wind']['deg'];
 
-        return WeatherLog::updateOrInsert(
-            ['city_id' => $city_id],
+        return WeatherLog::create(
             [
+                'city_id' => $city_id,
                 'fetch_timestamp' => $fetchTimestamp,
                 'weather_condition' => $weatherCondition,
                 'weather_condition_description' => $weatherConditionDescription,
