@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Weather Reports</h2>
+    <h2 class="title">Weather Reports</h2>
     <div class="row">
       <div class="col-md-4" v-for="item in weatherData" :key="item.id">
         <div class="card text-white">

@@ -7,14 +7,7 @@
                     <Report />
                 </div>
                 <div class="col-md-6">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h2>Temperature Data</h2>
-                        <div id="datepickerContainer">
-                            <input type="text" class="form-control" id="datepicker" placeholder="Select Date">
-                        </div>
-                    </div>
-
-                    <div id="temperatureGraph" style="height: 300px;"></div>
+                   <Statistics/>
                 </div>
             </div>
         </div>
@@ -23,28 +16,40 @@
 
 <script>
 import Report from '../components/home/Report.vue'; 
+import Statistics from '../components/home/Statistics.vue'; 
 import axios from 'axios';
 import { mapState } from 'vuex';
 
 export default {
   components: {
     Report,
+    Statistics,
   },
   created() {
-    this.fetchWeatherData();
+    this.getWeatherData();
+    this.getStatisticsData();
   },
   computed: {
-    ...mapState(['weatherData']), 
+    ...mapState(['weatherData', 'selectedCityId']), 
   },
   methods: {
-    async fetchWeatherData() {
+    //report data
+    async getWeatherData() {
       try {
         const response = await axios.get('/get-weather-logs'); 
-        console.log(response.data);
-        this.$store.commit('setWeatherData', response.data); // Commit data to the 'weatherData' state
+        this.$store.commit('setWeatherData', response.data); 
       } 
       catch (error) {
-        console.error('Error fetching weather data:', error);
+      }
+    },
+
+    //statistics data
+     async getStatisticsData() {
+      try {
+        const response = await axios.get(`/get-statistics-data?city_id=${this.selectedCityId}`); 
+        this.$store.commit('setStatisticsData', response.data); 
+      } 
+      catch (error) {
       }
     },
   },

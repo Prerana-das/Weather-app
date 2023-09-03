@@ -2,16 +2,12 @@
   <div>
     <div class="container">
         <Header />
-
-        Hello
         <div class="content">
             <Sidebar />
             <div class="main-content container">
                 <router-view></router-view> 
             </div>
         </div>
-
-        
     </div>
   </div>
 </template>

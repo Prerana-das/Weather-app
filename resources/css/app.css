@@ -1,4 +1,3 @@
-/* Reset some default styles for the sidebar */
 * {
     margin: 0;
     padding: 0;
@@ -10,9 +9,9 @@
 .sidebar {
     width: 100px;
     height: 100%;
-    background-color: #fff; /* White background color */
-    border-right: 2px solid #EFECEC; /* Right border with #EFECEC color */
-    color: #333; /* Text color */
+    background-color: #fff;
+    border-right: 2px solid #EFECEC;
+    color: #333;
     position: fixed;
     top: 0;
     left: 0;
@@ -28,8 +27,8 @@
 }
 
 .logo img {
-    width: 40px; /* Adjust the size as needed */
-    height: 40px; /* Adjust the size as needed */
+    width: 40px;
+    height: 40px;
 }
 
 /* Menu styles */
@@ -76,7 +75,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: center; /* Horizontally center content */
+    justify-content: center;
     padding: 10px;
     transition: 0.2s;
 }
@@ -88,9 +87,10 @@
 .logout a:hover {
     background-color: #555;
 }
+
 .topbar {
-    background-color: #fff; /* White background color */
-    border-bottom: 2px solid #EFECEC; /* Bottom border with #EFECEC color */
+    background-color: #fff;
+    border-bottom: 2px solid #EFECEC;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -99,9 +99,9 @@
 
 /* User profile image styles */
 .user-profile img {
-    width: 40px; /* Adjust the size as needed */
-    height: 40px; /* Adjust the size as needed */
-    border-radius: 50%; /* Make it round if needed */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .main-content {
@@ -120,34 +120,29 @@ h2 {
     border-radius: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #736099;
-    /* width: 178px; */
     height: 300px;
     flex-shrink: 0;
     padding: 50px 30px;
     margin-bottom: 30px;
 }
-.card-title{
+
+.card-title {
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
-.card-sub-title{
+
+.card-sub-title {
     font-size: 18px;
 }
 
 .card img {
-    width: 50px; /* Adjust the size as needed */
-    height: 50px; /* Adjust the size as needed */
-    border-radius: 50%; /* Make it round if needed */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
-/* Customize Bootstrap primary color for cards */
-.bg-primary {
-    background-color: #736099; /* Your custom color */
-}
-
-/* Center text vertically in card body */
 .card-body {
     display: flex;
     flex-direction: column;
@@ -156,7 +151,8 @@ h2 {
     text-align: center;
     height: 100%;
 }
-.card-temparature{
+
+.card-temparature {
     font-family: Plus Jakarta Sans;
     font-size: 24px;
     font-style: normal;
@@ -164,7 +160,23 @@ h2 {
     line-height: normal;
     text-transform: capitalize;
 }
-.card-temparature span{
+
+.card-temparature span {
     color: #8497C9;
     padding-left: 2px;
+}
+
+.title {
+    font-size: 22px;
+}
+
+.statistics-card {
+    margin-bottom: 20px;
+}
+.statistics-top-right {
+    width: 32%;
+}
+.selected-date {
+    font-size: 18px;
+    margin: 10px 0px 5px 0px;
 }
