@@ -1,0 +1,170 @@
+/* Reset some default styles for the sidebar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Product Sans;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 100px;
+    height: 100%;
+    background-color: #fff; /* White background color */
+    border-right: 2px solid #EFECEC; /* Right border with #EFECEC color */
+    color: #333; /* Text color */
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 20px;
+}
+
+/* Logo styles */
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 40px; /* Adjust the size as needed */
+    height: 40px; /* Adjust the size as needed */
+}
+
+/* Menu styles */
+.menu {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+.menu a i {
+    margin-right: 10px;
+}
+
+.menu a:hover {
+    background-color: #555;
+}
+
+/* Logout styles */
+.logout {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+}
+
+.logout a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Horizontally center content */
+    padding: 10px;
+    transition: 0.2s;
+}
+
+.logout a i {
+    margin-right: 10px;
+}
+
+.logout a:hover {
+    background-color: #555;
+}
+.topbar {
+    background-color: #fff; /* White background color */
+    border-bottom: 2px solid #EFECEC; /* Bottom border with #EFECEC color */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* User profile image styles */
+.user-profile img {
+    width: 40px; /* Adjust the size as needed */
+    height: 40px; /* Adjust the size as needed */
+    border-radius: 50%; /* Make it round if needed */
+}
+
+.main-content {
+    padding: 20px;
+}
+
+/* Title style */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Card style */
+.card {
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #736099;
+    /* width: 178px; */
+    height: 300px;
+    flex-shrink: 0;
+    padding: 50px 30px;
+    margin-bottom: 30px;
+}
+.card-title{
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.card-sub-title{
+    font-size: 18px;
+}
+
+.card img {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    border-radius: 50%; /* Make it round if needed */
+}
+
+/* Customize Bootstrap primary color for cards */
+.bg-primary {
+    background-color: #736099; /* Your custom color */
+}
+
+/* Center text vertically in card body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+.card-temparature{
+    font-family: Plus Jakarta Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.card-temparature span{
+    color: #8497C9;
+    padding-left: 2px;
+}
