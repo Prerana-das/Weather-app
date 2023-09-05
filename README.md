@@ -37,6 +37,10 @@ https://laravel.com/docs/9.x/scheduling#main-content
 ```shell
 php artisan schedule:work
 ```
+### env 
+```
+WEATHER_API_KEY=YOUR_API_KEY
+```
 ### My current output
 
 https://ibb.co/VQtFJJY
